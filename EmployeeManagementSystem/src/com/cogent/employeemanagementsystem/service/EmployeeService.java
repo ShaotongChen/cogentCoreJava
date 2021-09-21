@@ -4,7 +4,7 @@ import com.cogent.employeemanagementsystem.model.Employee;
 import com.cogent.employeemanagementsystem.repository.EmployeeRepository;
 
 public class EmployeeService {
-EmployeeRepository employeeRepository= new EmployeeRepository();
+EmployeeRepository employeeRepository= EmployeeRepository.getInstance();
 
 public String addEmployee(Employee employee) {
 	
@@ -13,8 +13,5 @@ public String addEmployee(Employee employee) {
 public Employee getEmployeeById(String id) {
 	return employeeRepository.getEmployeeByID(id);
 }
-public static EmployeeRepository getInstance() {
-	
-	return EmployeeRepository.getInstance();
-}
+
 }
