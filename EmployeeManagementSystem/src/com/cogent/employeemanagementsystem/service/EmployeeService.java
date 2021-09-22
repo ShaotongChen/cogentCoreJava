@@ -1,17 +1,16 @@
 package com.cogent.employeemanagementsystem.service;
 
 import com.cogent.employeemanagementsystem.model.Employee;
-import com.cogent.employeemanagementsystem.repository.EmployeeRepository;
 
-public class EmployeeService {
-EmployeeRepository employeeRepository= EmployeeRepository.getInstance();
+public interface EmployeeService {
 
-public String addEmployee(Employee employee) {
 	
-	return employeeRepository.addEmployee(employee);
-}
-public Employee getEmployeeById(String id) {
-	return employeeRepository.getEmployeeByID(id);
-}
-
+	
+	public String addEmployee(Employee employee);
+	public String deleteEmployeeById(String id);
+	public void deleteAllEmployees();
+	public Employee getEmployeeByID(String id);
+	public Employee[] getEmployees();
+	public String upddateEmployee(String id, Employee employee);
+	
 }
