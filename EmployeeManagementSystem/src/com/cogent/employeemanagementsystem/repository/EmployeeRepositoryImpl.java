@@ -64,13 +64,31 @@ Employee employee= this.getEmployeeByID(id);
  }
 @Override
 public void deleteAllEmployees() {
-	// TODO Auto-generated method stub
+	for(int i=0; i<employees.length; i++) {
+		employees[i]=null;
+	}
 	
 }
 
 @Override
 public String upddateEmployee(String id, Employee employee) {
-	// TODO Auto-generated method stub
+	Employee temp= this.getEmployeeByID(id);
+	if(temp != null) {
+	employees[this.getIndex(temp)]=employee;	
+		return "already updated!";
+	}
+	else {
+	return "not found";	
+	}
+	
+}
+public Employee getEmployeeByName(String name) {
+	for(int i=0; i<employees.length; i++) {
+		if(
+		name==employees[i].getFirstName()+employees[i].getLastName()) {
+			return employees[i];
+		}
+	}
 	return null;
 }
 	}

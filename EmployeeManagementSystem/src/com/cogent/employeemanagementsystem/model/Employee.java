@@ -62,7 +62,11 @@ public float calculateSalary() {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
- 
+	@Override
+ public String toString() {
+	 return "ID: "+EmployeeID+" FirstName: "+firstName+" LastName: "+lastName+" EmpSarlary "+empSalary+" Adress: "+
+ address;
+ }
 	
 
 }

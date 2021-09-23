@@ -4,7 +4,7 @@ import com.cogent.employeemanagementsystem.model.Employee;
 import com.cogent.employeemanagementsystem.repository.EmployeeRepository;
 import com.cogent.employeemanagementsystem.repository.EmployeeRepositoryImpl;
 
-public class EmployeeServiceImpl{
+public class EmployeeServiceImpl implements EmployeeService{
 EmployeeRepository employeeRepository= EmployeeRepositoryImpl.getInstance();
 
 public String addEmployee(Employee employee) {
@@ -29,5 +29,18 @@ public static EmployeeServiceImpl getInstance() {
 		return employeeService;
 	}
 	return employeeService; 
+}
+@Override
+public void deleteAllEmployees() {
+	employeeRepository.deleteAllEmployees();
+	
+}
+@Override
+public Employee getEmployeeByID(String id) {
+	return employeeRepository.getEmployeeByID(id);
+}
+@Override
+public String upddateEmployee(String id, Employee employee) {
+	return employeeRepository.upddateEmployee(id, employee);
 }
 }
