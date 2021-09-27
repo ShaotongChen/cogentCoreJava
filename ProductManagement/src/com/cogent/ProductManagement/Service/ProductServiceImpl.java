@@ -2,6 +2,7 @@ package com.cogent.ProductManagement.Service;
 
 import com.cogent.ProductManagement.Repository.ProductRepository;
 import com.cogent.ProductManagement.Repository.ProductRepositoryImpl;
+import com.cogent.ProductManagement.exception.InvalidProductId;
 import com.cogent.ProductManagement.model.Product;
 
 public class ProductServiceImpl implements ProductService {
@@ -25,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String deleteProductById(String id) {
+	public String deleteProductById(String id) throws InvalidProductId {
 			return productRepository.deleteProductById(id);
 	}
 
@@ -36,7 +37,7 @@ productRepository.deleteAllProducts();
 	}
 
 	@Override
-	public Product getProductByID(String id) {
+	public Product getProductByID(String id) throws InvalidProductId {
 		// TODO Auto-generated method stub
 		return productRepository.getProductByID(id);
 	}
@@ -48,7 +49,7 @@ productRepository.deleteAllProducts();
 	}
 
 	@Override
-	public String upddateProduct(String id, Product employee) {
+	public String upddateProduct(String id, Product employee) throws InvalidProductId {
 		// TODO Auto-generated method stub
 		return productRepository.upddateProduct(id, employee);
 	}

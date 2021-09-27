@@ -1,5 +1,6 @@
 package com.cogent.ProductManagement.Repository;
 
+import com.cogent.ProductManagement.exception.InvalidProductId;
 import com.cogent.ProductManagement.model.Product;
 
 public class ProductRepositoryImpl implements ProductRepository {
@@ -19,6 +20,8 @@ public class ProductRepositoryImpl implements ProductRepository {
 		}
 		return productRepository;
 	}
+	
+	
 	@Override
 	public String addProduct(Product product) {
 	if(count>=products.length-1) {
@@ -39,7 +42,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 		}else return -1;
 	}
 	@Override
-	public String deleteProductById(String id) {
+	public String deleteProductById(String id) throws InvalidProductId {
 		Product product= this.getProductByID(id);
 		if(product!=null) {
 			products[this.index(product)]=null;
@@ -60,14 +63,14 @@ public class ProductRepositoryImpl implements ProductRepository {
 		}
 
 	@Override
-	public Product getProductByID(String id) {
+	public Product getProductByID(String id) throws InvalidProductId {
 
 		for(int i=0; i<products.length;i++) {
 			if(products[i]!=null && products[i].getProductId().equals(id)) {
 				return products[i];
 			}
 		}
-		return null;
+		throw new InvalidProductId("not found id");
 	
 	}
 
@@ -78,7 +81,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 	}
 
 	@Override
-	public String upddateProduct(String id, Product employee) {
+	public String upddateProduct(String id, Product employee) throws InvalidProductId {
  if(this.getProductByID(id)!=null) {
 	 products[index(this.getProductByID(id))]=employee;
 	 return "update success";
