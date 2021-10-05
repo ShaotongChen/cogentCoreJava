@@ -1,0 +1,99 @@
+API (Application Programming interface)
+
+=> It is no way related to java meaning, it is used having english
+     meaning like- base, platform and etc..
+
+
+=> API is base for the programmers to develop software apps..
+   every programming language, s/w technology and framework provides
+   API.
+
+=> In "C" language API means set of functions that comes in the form
+   of "header files" (.h files).
+
+
+=> In "C++" language API means set of functions and classes that 
+   comes in the form of "header files".
+
+=> In "Java" language API means set of classes, interface, enums,
+   annotations which comes in the form of packages...
+
+
+
+
+
+
+
+
+
+How many types of APIs do we have?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3 types of APIs
+===============
+
+1) Pre-defined APIs/Built-in APIs
+
+   --> It will come along with software(JDK).
+
+2) User-defined APIS
+
+    ---> Developed by the programmers
+
+3) Third party APIS
+
+    --> Given by Third party vendors like-- java zoom, softwareTree,
+         Apache and etc.....
+
+
+  (Here party1 ---> Programmer/Developer
+
+        party2 ----> The s/w vendor company who is giving software language
+                     ,technology, framework.
+
+
+1) Examples java pre-defined apis
+=================================
+cmd>javap java.lang.Object
+
+javap => , here p stands profile.
+
+ and whereas java is a main package
+
+  and, lang is a sub-package
+
+   and, Object is a pre defined class.
+
+utility api --> java.util and its sub packages..
+networking api --> java.reflect and its sub packages..
+jdbc api (technology) ---> java.sql, javax.sql and its sub packages..
+servlet api ------->       javax.servlet and its sub packages
+hibernate api(framework) ----> org.hibernate and its sub packages...
+
+
+=> In APplication Development we can use all 3 types of apis...
+
+=> set of apis together is called Library.. and these libraries in 
+   java will come as jar files...
+
+====================================================================================

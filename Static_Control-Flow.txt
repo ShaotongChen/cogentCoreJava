@@ -1,0 +1,215 @@
+Static Control Flow:
+====================
+
+Members= variables + methods.
+
+Q-1) What is static block?
+
+Ans-1) static block is a block which executes before main().
+class Base{
+	static int i=10; // static variable i=0, i=10 , at the time of identification of the static varaible value will have its default value.
+	static{
+	m1();
+	System.out.println("First Static Block"); // First Static Block
+	}// static block
+	public static void main(String[] args){
+	m1();
+	System.out.println("Main method");
+	} // main method
+	public static void m1(){
+	System.out.println(j);  //0 ,20
+	} //  static method-m1
+	static{
+	System.out.println("Second Static Block"); // Second Static Block
+	}// static block
+	static int j=20;  // static variable , j=0, j=20
+}
+
+output:
+
+0
+First Static Block
+Second Static Block
+20
+Main method
+
+Whenever we are executing a java class
+the following sequence of steps will be
+executed as the part of static control
+flow:
+
+Step-1) Identification of static members
+   from top to bottom.  Members = variables +methods(functions) + static block
+
+Step-2) Execution of static variable assignment and
+   static blocks from top to bottom.
+
+Step-3) Execution of main method.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------- 
+
+In Step-1, if the member is a variable then JVM will assign the default
+value at the time of identification.
+
+so, i=0, if the original value is not assigned then the state
+is called Read Indirectly Write Only[RIWO] state.
+
+
+Step-1)
+
+i)
+
+static int i;
+
+ i=0[RIWO]
+
+---------------------------------------------
+
+ii)
+
+ static{
+
+  m1();
+  System.out.println("First Static Block");
+
+ }
+
+-------------------------------------------
+
+iii)
+
+public static void main(String[] args){
+
+	m1();
+	System.out.println("Main method");
+
+	}
+
+---------------------------------------------
+
+iv)
+
+public static void m1(){
+
+	System.out.println(j);
+
+}
+
+------------------------------------------------
+
+v)
+
+static{
+
+	System.out.println("Second Static Block");
+
+}
+------------------------------------------
+
+vi)
+
+static int j;
+
+j=0[RIWO]
+
+==========================================
+
+Step-2)
+
+vii) i=10[R&W]
+
+--------------------------------------------
+
+ static{
+
+
+	m1(); viii th step
+	System.out.println("First Static Block");
+
+
+      } 
+
+-----------------------------------------------
+
+public static void m1(){
+
+	System.out.println(j); ix th step
+
+}
+
+------------------------------------
+
+
+ static{
+
+
+	m1(); viii th step
+	System.out.println("First Static Block"); 10th step
+
+
+      } 
+
+-------------------------------------------------
+
+static{
+
+  System.out.println("Second Static Block"); 11 the st
+
+}
+
+-----------------------------------------------
+
+static int j=20; 12th step
+
+j=20[R&W]
+
+==============================
+
+Step-3)
+
+public static void main(String[] args){
+
+ m1(); // 13th step
+ System.out.println("main method");
+
+}
+
+----------------------------------------
+
+
+public static void m1(){
+
+	System.out.println(j); // 14th step
+
+}
+
+-------------------------------------------
+
+public static void main(String[] args){
+
+	m1(); // 13th step
+        System.out.println("main method"); // 15 th step
+
+}
+
+
+Output:
+
+0
+First Static Block
+Second Static Block
+20
+Main method
